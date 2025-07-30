@@ -1,103 +1,131 @@
+'use client';
+
 import Image from "next/image";
+import { useState } from "react";
+import { Linkedin, Github, Instagram, Twitter, Lightbulb, ExternalLink, Mail } from "lucide-react";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [dailyMessage, setDailyMessage] = useState(0);
+  
+  const motivationalMessages = [
+    "A persistência é o caminho do êxito.",
+    "Cada dia é uma nova oportunidade para ser melhor.",
+    "O sucesso não é final, o fracasso não é fatal: é a coragem de continuar que conta.",
+    "Sonhe grande, trabalhe duro, seja paciente.",
+    "A qualidade é melhor que a quantidade.",
+    "Faça hoje o que outros não farão, para ter amanhã o que outros não terão.",
+    "O conhecimento é o investimento que paga os melhores juros."
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+  const handleDailyMessage = () => {
+    setDailyMessage((prev) => (prev + 1) % motivationalMessages.length);
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 flex items-center justify-center p-4">
+      <div className="max-w-md w-full bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 space-y-6 border border-slate-200 dark:border-slate-700">
+        {/* Foto de perfil circular */}
+        <div className="flex justify-center">
+          <div className="w-48 h-48 rounded-full overflow-hidden shadow-lg border-4 border-slate-200 dark:border-slate-600">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/eu.jpg"
+              alt="João Marcelo"
+              width={192}
+              height={192}
+              className="w-full h-full object-cover"
             />
-            Deploy now
-          </a>
+          </div>
+        </div>
+
+        {/* Informações pessoais */}
+        <div className="text-center space-y-2">
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
+            João Marcelo
+          </h1>
+          <p className="text-slate-600 dark:text-slate-300 text-lg">
+            Software Engineer
+          </p>
+        </div>
+
+        {/* Botões de redes sociais */}
+        <div className="space-y-4">
+          {/* LinkedIn */}
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://linkedin.com/in/joaomarcelo-j/"
             target="_blank"
             rel="noopener noreferrer"
+            className="flex items-center justify-between w-full bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md border border-gray-700"
           >
-            Read our docs
+            <Linkedin className="w-5 h-5" />
+            <span>/in/joaomarcelo-j/</span>
+            <ExternalLink className="w-4 h-4" />
           </a>
+
+          {/* GitHub */}
+          <a
+            href="https://github.com/JoaoMarcelo-J"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between w-full bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md border border-gray-700"
+          >
+            <Github className="w-5 h-5" />
+            <span>/JoaoMarcelo-J</span>
+            <ExternalLink className="w-4 h-4" />
+          </a>
+
+          {/* Instagram */}
+          <a
+            href="https://instagram.com/joao_marcel0o0"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between w-full bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md border border-gray-700"
+          >
+            <Instagram className="w-5 h-5" />
+            <span>@joao_marcel0o0</span>
+            <ExternalLink className="w-4 h-4" />
+          </a>
+
+          {/* X (Twitter) */}
+          <a
+            href="https://x.com/joaomarcel0vr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between w-full bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md border border-gray-700"
+          >
+            <Twitter className="w-5 h-5" />
+            <span>@joaomarcel0vr</span>
+            <ExternalLink className="w-4 h-4" />
+          </a>
+
+          {/* Email */}
+          <a
+            href="mailto:joaomarcelodev.contato@gmail.com"
+            className="flex items-center justify-between w-full bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md border border-gray-700"
+          >
+            <Mail className="w-5 h-5" />
+            <span>joaomarcelodev.contato@gmail.com</span>
+            <ExternalLink className="w-4 h-4" />
+          </a>
+
+          {/* Mensagem do dia */}
+          <button
+            onClick={handleDailyMessage}
+            className="flex items-center justify-center gap-3 w-full bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md border border-gray-700"
+          >
+            <Lightbulb className="w-5 h-5" />
+            Mensagem do dia
+          </button>
+
+          {/* Exibir mensagem motivacional */}
+          {dailyMessage > 0 && (
+            <div className="mt-4 p-4 bg-slate-50 dark:bg-slate-700 rounded-xl border border-slate-200 dark:border-slate-600">
+              <p className="text-slate-800 dark:text-slate-200 text-center italic">
+                "{motivationalMessages[dailyMessage]}"
+              </p>
+            </div>
+          )}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
   );
 }
