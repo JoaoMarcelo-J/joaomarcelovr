@@ -20,7 +20,7 @@ export const profile = {
     "Tenho liderança técnica comprovada conduzindo refatorações estruturais, migrações complexas e modernização de stacks legados, sempre com foco em performance, confiabilidade e experiência do usuário.",
   ],
   hobby:
-    "Nas horas livres mergulho em projetos Web3, exploro arquiteturas distribuídas e estudo engenharia de software de alta performance — sempre buscando quebrar os limites da stack que utilizo.",
+    "Nas horas livres aprofundo meus estudos no mercado de pagamentos — gateways, checkouts e arquiteturas transacionais — e também exploro projetos Web3 e engenharia de software de alta performance.",
 };
 
 export const socials = [
