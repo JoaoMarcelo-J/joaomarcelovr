@@ -62,10 +62,25 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    company: "Sogo Tecnologia",
+    role: "Senior Fullstack Developer",
+    period: "2025 — Atual",
+    current: true,
+    description: [
+      "Desenvolvimento de funcionalidades críticas em plataforma de gestão documental governamental, atuando em todo o ciclo: análise, implementação, testes e deploy.",
+      "Otimização de performance em queries GraphQL/Prisma, resolvendo gargalos de timeout e reduzindo o tempo de carga inicial para abaixo de 5 segundos em produção.",
+      "Criação de funções e índices customizados no PostgreSQL (unaccent, pg_trgm/GIN) para acelerar buscas textuais em bases de grande volume.",
+      "Correção de bugs complexos na geração de PDFs, refatorando a pipeline HTML → pdfMake com Cheerio para parsing DOM seguro.",
+      "Evolução de regras de negócio no backend (TypeScript/RedwoodJS): permissões, workflows e ciclo de vida documental, com gestão de hotfixes em entrega contínua.",
+    ],
+    result:
+      "Eliminação de blank screens causados por timeout, correção de PDFs com tabelas e rich-text, e plataforma em uso por múltiplas prefeituras e órgãos governamentais com alto volume diário de documentos processados.",
+    tags: ["TypeScript", "GraphQL", "Prisma", "PostgreSQL", "RedwoodJS", "CI/CD"],
+  },
+  {
     company: "Hydra Hub",
     role: "Skill Lead / Tech Lead",
-    period: "01/2025 — Atual",
-    current: true,
+    period: "01/2025 — 2025",
     description: [
       "Liderança técnica do time de desenvolvimento, apoiando decisões de arquitetura e guiando o time nos desafios técnicos.",
       "Responsável por code reviews, padronização de código e boas práticas de engenharia de software.",
@@ -140,6 +155,14 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    title: "Sogov",
+    company: "Sogo Tecnologia",
+    description:
+      "Plataforma de gestão e tramitação documental para o setor público, com workflows, controle de permissões, geração de PDFs e buscas em alto volume — em uso por prefeituras e órgãos governamentais.",
+    tags: ["TypeScript", "GraphQL", "Prisma", "PostgreSQL"],
+    highlight: "Setor público",
+  },
   {
     title: "Avantti Finance",
     company: "Hydra Hub",
